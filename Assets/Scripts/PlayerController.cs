@@ -63,6 +63,10 @@ public class PlayerController : MonoBehaviour {
 	
 	}
 
+	public void quitGame(){
+		Application.Quit();
+	}
+
 	void SetText(){
 	
 		scoreText.text = "Score: " + (count*10).ToString ();
@@ -95,16 +99,16 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Blow(){
-		getReady.text = "Blow";
+		getReady.text = "BLOW";
 		Invoke ("clearText", 1.0f);
 	}
 
 	void clearText(){
 		getReady.text = "";
+		scoreText.gameObject.SetActive (true);
+		SetText ();
 	}
 
-	void Exit(){
-		Application.Quit();
-	}
+
 
 }
